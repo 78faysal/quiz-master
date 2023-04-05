@@ -5,7 +5,7 @@ import logo from '../../Photos/logo.png';
 const UpperNav = () => {
     return (
         <div>
-            <Navbar collapseOnSelect className='text-dark p-0' expand="md" bg="white" variant="dark">
+            <Navbar collapseOnSelect fixed='top' shadow="bottom" className='text-dark' expand="md" bg="white" variant="dark">
                 <Container>
                     <Navbar.Brand className='text-dark' href="#home">
                         <img

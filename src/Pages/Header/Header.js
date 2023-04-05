@@ -15,7 +15,7 @@ const Header = () => {
                 }}
             >
                 <Container className="d-flex flex-column justify-content-center align-items-center h-100">
-                    <h1 className="text-white mb-4">Welcome to my website</h1>
+                    <h1 className="text-white mb-4">Welcome to Quiz Master</h1>
                     <Form className="w-50">
                         <FormControl type="text" placeholder="Search for something" className="mr-sm-2" />
                         <Button className='mt-2' variant="danger" type="submit">
