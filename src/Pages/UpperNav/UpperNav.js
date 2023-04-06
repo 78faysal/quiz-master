@@ -11,16 +11,16 @@ const UpperNav = () => {
                         <img
                             alt=""
                             src={logo}
-                            width="200"
+                            width="180"
                             className="d-inline-block"
                         />{' '}
                     </Navbar.Brand>
                     <Navbar.Toggle className='bg-secondary' aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ml-auto">
-                            <Nav.Link className='text-dark fw-bold' href="#about">About</Nav.Link>
-                            <Nav.Link className='text-dark' href="#services">Services</Nav.Link>
-                            <Nav.Link className='text-dark' href="#contact">Contact</Nav.Link>
+                            <Nav.Link className='text-dark fw-bold' href="#about">Topics</Nav.Link>
+                            <Nav.Link className='text-dark' href="#services">Statistic</Nav.Link>
+                            <Nav.Link className='text-dark' href="#contact">Blogs</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
