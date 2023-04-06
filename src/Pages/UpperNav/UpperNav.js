@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import logo from '../../Photos/logo.png';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const UpperNav = () => {
     return (
@@ -19,9 +19,9 @@ const UpperNav = () => {
                     <Navbar.Toggle className='bg-secondary' aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ml-auto">
-                            <Link className='text-dark p-2 text-decoration-none' to="/topics">Topics</Link>
-                            <Link className='text-dark p-2 text-decoration-none' to="/statistics">Statistics</Link>
-                            <Link className='text-dark p-2 text-decoration-none' to="/blogs">Blogs</Link>
+                            <NavLink className='text-dark p-2 text-decoration-none' to="/topics">Topics</NavLink>
+                            <NavLink className='text-dark p-2 text-decoration-none' to="/statistics">Statistics</NavLink>
+                            <NavLink className='text-dark p-2 text-decoration-none' to="/blogs">Blogs</NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

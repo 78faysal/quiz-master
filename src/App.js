@@ -7,6 +7,7 @@ import UpperNav from './Pages/UpperNav/UpperNav';
 import Footer from './Pages/Footer/Footer';
 import QuizTopics from './Pages/Quiz/QuizTopics/QuizTopics';
 import NotFound from './Pages/NotFound/NotFound';
+import TopicDetails from './Pages/Quiz/QuizTopicDetails/TopicDetails';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path='/' element={<Home/>} />
         <Route path='/home' element={<Home/>} />
         <Route path='/topics' element={<QuizTopics />} />
+        <Route path='/topicDetails/:topicId' element={<TopicDetails />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />

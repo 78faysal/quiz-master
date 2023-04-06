@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const QuizTopics = () => {
     const [topics, setTopics] = useState([])
@@ -22,7 +23,8 @@ const QuizTopics = () => {
                                     <Card.Img className='bg-secondary' variant="top" src={topic.logo} alt={topic.name} />
                                     <Card.Body>
                                         <Card.Title>{topic.name}</Card.Title>
-                                        <Button variant="primary">See More</Button>
+                                        <Card.Text>Total: {topic.total}</Card.Text>
+                                        <Link to={`/topicDetails/${topic.id}`} className='btn btn-primary'>See More</Link>
                                     </Card.Body>
                                 </Card>
                             </div>
