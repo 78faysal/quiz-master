@@ -1,13 +1,14 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import logo from '../../Photos/logo.png';
+import { Link } from 'react-router-dom';
 
 const UpperNav = () => {
     return (
         <div>
-            <Navbar collapseOnSelect fixed='top' shadow="bottom" className='text-dark' expand="md" bg="white" variant="dark">
+            <Navbar style={{backgroundColor: "#e3f3ff"}} collapseOnSelect fixed='top' shadow="bottom" className='text-dark' expand="md" bg="" variant="dark">
                 <Container>
-                    <Navbar.Brand className='text-dark' href="#home">
+                    <Navbar.Brand className='text-dark' href="/home">
                         <img
                             alt=""
                             src={logo}
@@ -18,9 +19,9 @@ const UpperNav = () => {
                     <Navbar.Toggle className='bg-secondary' aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ml-auto">
-                            <Nav.Link className='text-dark fw-bold' href="#about">Topics</Nav.Link>
-                            <Nav.Link className='text-dark' href="#services">Statistic</Nav.Link>
-                            <Nav.Link className='text-dark' href="#contact">Blogs</Nav.Link>
+                            <Link className='text-dark p-2 text-decoration-none' to="/topics">Topics</Link>
+                            <Link className='text-dark p-2 text-decoration-none' to="/statistics">Statistics</Link>
+                            <Link className='text-dark p-2 text-decoration-none' to="/blogs">Blogs</Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

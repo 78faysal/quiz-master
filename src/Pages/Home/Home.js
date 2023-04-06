@@ -7,11 +7,9 @@ import Footer from '../Footer/Footer';
 
 const Home = () => {
     return (
-        <div>
-            <UpperNav></UpperNav>
+        <div className='mt-5'>
             <Header></Header>
             <QuizTopics></QuizTopics>
-            <Footer></Footer>
         </div>
     );
 };

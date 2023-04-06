@@ -12,8 +12,9 @@ const QuizTopics = () => {
     }, [])
     return (
         <div>
-            <div className="topics mt-5">
+            <div className="topics mt-5 pt-5">
                 <div className="container">
+                    <h2 className='text-center p-2'>Our Courses</h2>
                     <div className="row">
                         {topics.map(topic => (
                             <div key={topic.id} className="col-lg-3 col-md-6 mb-4">
