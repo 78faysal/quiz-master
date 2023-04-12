@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import QuizTopic from '../QuizTopic/QuizTopic';
+import { ToastContainer, toast } from 'react-toastify';
 
 const TopicDetails = () => {
 
@@ -17,31 +18,44 @@ const TopicDetails = () => {
     }, [topicId]);
 
 
-    console.log(topicDetails.questions)
 
     const [questions, setQuestions] = useState([]);
-    const [currentQuestion, setCurrentQuestion] = useState({});
+    const [correctQuestion, setCorrectQuestion] = useState({});
     const [selectedOption, setSelectedOption] = useState(null);
-    const [currectAnswer, setCurrectAnswer] = useState([]);
+    const [correctAnswer, setCorrectAnswer] = useState([]);
+    const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
 
-    const handleOptionSelect = (option) => {
+    const handleOptionSelect = (option, correctAnswer) => {
+        setCorrectAnswer(correctAnswer);
         setSelectedOption(option);
     };
 
     const handleNextQuestion = () => {
-        const currentIndex = questions.indexOf(currentQuestion);
+        const currentIndex = questions.indexOf(correctQuestion);
         if (currentIndex + 1 < questions.length) {
-            setCurrentQuestion(questions[currentIndex + 1]);
+            setCorrectQuestion(questions[currentIndex + 1]);
             setSelectedOption(null);
         } else {
             // handle end of quiz logic
         }
     };
 
+    // const notify = () => toast("Wow your answer is correct!");
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log(currectAnswer ,selectedOption)
+        if (correctAnswer === selectedOption) {
+            // setIsAnswerCorrect(true);
+            // notify();
+            console.log('your answer is correct')
+        }
+        else {
+            // setIsAnswerCorrect(false);
+            console.log('your answer is not correct');
+        }
+
+        console.log(correctAnswer, selectedOption)
 
         handleNextQuestion();
     };
@@ -64,21 +78,23 @@ const TopicDetails = () => {
                                     <Form onSubmit={handleSubmit}>
                                         {
                                             topicDetail.options.map((option) => {
-                                                
-                                                <Form.Check
-                                                    key={option}
-                                                    type="radio"
-                                                    label={option}
-                                                    checked={selectedOption === option}
-                                                    // { setCurrectAnswer(option.currectAnswer) }
-                                                    onChange={() => handleOptionSelect(option)}
-                                                />
+                                                return (
+                                                    <Form.Check
+                                                        key={option}
+                                                        type="radio"
+                                                        label={option}
+                                                        checked={selectedOption === option}
+                                                        onChange={() => handleOptionSelect(option, topicDetail.correctAnswer)}
+                                                    />
+                                                )
                                             })}
                                         <Button variant="primary" type="submit">
                                             Submit
                                         </Button>
                                     </Form>
+                                    
                                 </Col>
+                                
                             )
                         })
 
