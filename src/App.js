@@ -8,6 +8,8 @@ import Footer from './Pages/Footer/Footer';
 import QuizTopics from './Pages/Quiz/QuizTopics/QuizTopics';
 import NotFound from './Pages/NotFound/NotFound';
 import TopicDetails from './Pages/Quiz/QuizTopicDetails/TopicDetails';
+import Statistics from './Pages/Statistics/Statistics';
+import Blogs from './Pages/Blogs/Blogs';
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
         <Route path='/home' element={<Home/>} />
         <Route path='/topics' element={<QuizTopics />} />
         <Route path='/topicDetails/:topicId' element={<TopicDetails />} />
+        <Route path='statistics' element={<Statistics/>} />	
+        <Route path='blogs' element={<Blogs />} />	
+
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />

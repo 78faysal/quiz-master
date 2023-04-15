@@ -23,7 +23,6 @@ const TopicDetails = () => {
     const [correctQuestion, setCorrectQuestion] = useState({});
     const [selectedOption, setSelectedOption] = useState(null);
     const [correctAnswer, setCorrectAnswer] = useState([]);
-    const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
 
     const handleOptionSelect = (option, correctAnswer) => {
         setCorrectAnswer(correctAnswer);
@@ -36,22 +35,20 @@ const TopicDetails = () => {
             setCorrectQuestion(questions[currentIndex + 1]);
             setSelectedOption(null);
         } else {
-            // handle end of quiz logic
+            
         }
     };
 
-    // const notify = () => toast("Wow your answer is correct!");
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         if (correctAnswer === selectedOption) {
-            // setIsAnswerCorrect(true);
-            // notify();
+            toast("Congrats, You're Correct!");
             console.log('your answer is correct')
         }
         else {
-            // setIsAnswerCorrect(false);
+            toast("Your answer isn't correct!");
             console.log('your answer is not correct');
         }
 
@@ -66,20 +63,21 @@ const TopicDetails = () => {
             <img className='img-fluid' src={topicDetails.logo} alt="" />
             <h2>Let's solve this {topicDetails.name} questions</h2>
 
-            <Container>
-                <h1>Quiz Questions</h1>
+            <Container className='mt-5'>
+                {/* <h1>Quiz Questions</h1> */}
                 <Row>
                     {
                         topicDetails.questions?.map(topicDetail => {
                             return (
                                 <Col className='mb-5' xs={12} lg={12}>
-                                    <h2>Question: {topicDetail.question}</h2>
+                                    <h2 className='text-left pl-2'>Q: {topicDetail.question}</h2>
 
                                     <Form onSubmit={handleSubmit}>
                                         {
                                             topicDetail.options.map((option) => {
                                                 return (
                                                     <Form.Check
+                                                        className='border border-primary text-left p-2 pl-4 m-2'
                                                         key={option}
                                                         type="radio"
                                                         label={option}
@@ -100,6 +98,7 @@ const TopicDetails = () => {
 
                     }
                 </Row>
+                <ToastContainer/>
             </Container>
         </div>
     );
